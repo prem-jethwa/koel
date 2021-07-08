@@ -11,29 +11,6 @@ a {
   text-decoration: none;
 }
 
-:root {
-  /* Background */
-  --main-bg: #76c893;
-  --pri-bg: #ffffff;
-  --sec-bg: #befff4;
-  --thir-bg: #92fff0;
-  --footer-bg: rgb(0, 115, 168);
-  --footer-sec-bg: rgb(0, 132, 150);
-  --nav-bg: #d1d1d1;
-  --play-item: #4db999;
-  /* Font color */
-  --main-color: #ffffff;
-  --sec-color: #aaffe0;
-  --thir-color: #99d98c;
-  /* BORDER */
-  --border-color: #fe2d2d;
-  --pri-border: #575757;
-
-  /* Form Color */
-  --form-bg: #0db39e;
-  --form-border: #16db93;
-}
-
 /* *********************************************** */
 /* overwriting the color var */
 :root {
@@ -222,9 +199,9 @@ body {
   margin: 0;
 }
 
-.player-container {
+/* .player-container {
   background-color: var(--pri-bg);
-}
+} */
 
 /* bookmarks */
 .mark {
@@ -254,6 +231,9 @@ body {
 /**************************************
 Main container Responsiveness */
 @media (max-width: 700px) {
+  .song-container {
+    background-color: var(--play-item);
+  }
   .main {
     text-align: center;
     margin: 0;

@@ -90,9 +90,9 @@ export const renderUserDetails = async function () {
   if (!TOKEN) return;
   const user = await userModel.getUser();
 
+  if (!user?.name) return;
   playlistView.setUser(stateModel.state.user);
 
-  if (!user.name) return;
   if (stateModel.state.isLogedIn) await LoginView.render(user, false);
 
   const imgUrl = await userModel.getAvatar();

@@ -9,4 +9,4 @@ export const NO_SONG_OBJ = {
 };
 
 export const PER_PAGE = 4;
-export const API_URL = "https://koel-api.herokuapp.com/"; // "http://localhost:3000/";
+export const API_URL = "http://localhost:3000/"; //"https://koel-api.herokuapp.com/"; // "http://localhost:3000/";

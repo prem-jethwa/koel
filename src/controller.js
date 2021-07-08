@@ -120,12 +120,16 @@ const autoLogout = () => {
 
 window.addEventListener("load", async () => {
   // playlistView.addHanderOnUiLoad();
-  await renderUserDetails();
-  await stateModel.loadSongPlaylistsState();
-  await loadUi();
-  await init();
-  await autoLogout();
-  document.querySelector(".loader-model").classList.add("hidden");
+  try {
+    await renderUserDetails();
+    await stateModel.loadSongPlaylistsState();
+    await loadUi();
+    await init();
+    await autoLogout();
+    document.querySelector(".loader-model").classList.add("hidden");
+  } catch (err) {
+    document.body = err;
+  }
 });
 
 // if (playlistName === "favourite") {
