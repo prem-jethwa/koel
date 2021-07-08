@@ -21,8 +21,6 @@ import {
 
 export async function logoutUser() {
   try {
-    await NO_DATA_AJAX("GET", `${API_URL}user/logout`);
-
     localStorage.removeItem("token");
     localStorage.clear();
     state.isLogedIn = false;
@@ -32,6 +30,7 @@ export async function logoutUser() {
     await loadSongPlaylistsState();
     await loadVirtualState();
     await updateFavSongs();
+    await NO_DATA_AJAX("GET", `${API_URL}user/logout`);
   } catch (err) {
     console.log(err);
   }
