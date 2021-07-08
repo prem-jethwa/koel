@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MusicApp</title>
+
+    <style>
+        .lds-dual-ring {
+          width: 80px;
+          height: 80px;
+
+          margin: auto;
+        }
+        .lds-dual-ring:after {
+          content: " ";
+          display: block;
+          width: 64px;
+          height: 64px;
+          margin: 8px;
+          border-radius: 50%;
+          border: 6px solid rgba(0, 0, 0, 0.753);
+          border-color: rgba(0, 0, 0, 0.678) transparent rgba(0, 0, 0, 0.705)
+            transparent;
+          animation: lds-dual-ring 1.2s linear infinite;
+        }
+        @keyframes lds-dual-ring {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+       .loader-model{
+         position: fixed;
+         height: 100vh;
+         width: 100vw;
+         background: rgb(24, 84, 139);
+         z-index: 1000;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+       }
+       .loader-model p{
+         padding: 1em;
+         font-size: 2em;
+       }
+    </style>
+     <!-- JS scripts -->
+     <script defer type="module" src="./src/controller.js"></script>
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="./public/css/add-song-login.css" />
+    <link rel="stylesheet" href="./public/css/player.css" />
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <link rel="stylesheet" href="./public/css/playlist.css" />
+    <link rel="stylesheet" href="./public/css/form.css" />
+    <link rel="stylesheet" href="./public/css/footer.css" />
+    <link rel="stylesheet" href="./public/css/search.css" />
+
+    <!-- <script defer rel="text/script">
+        document.innerHTML = '<div class="lds-dual-ring loader"></div>'
+        window.onload = () => {
+          const loader = document.querySelector('.loader')
+          loader.style.display = "none";
+          console.log(loader);
+        }
+    </script> -->
+
+    <!-- single file for css -->
+      <!-- <link rel="stylesheet" type="text/css" href="./css/single-file.css"> -->
+
+
+  </head>
+  <body>
+
+    <div class="loader-model hidden">
+      <div>
+        <div class="lds-dual-ring"></div>
+        <p> Loading...</p>
+      </div>
+    </div>
+
+    <div class="modal-win hidden"></div>
+    <!-- <div class="msg-container">
+      <div class="msg">Messsage is working</div>
+    </div> -->
+
+    <nav class="nav">
+      <div class="nav-container container">
+        <div class="search-lang_container">
+          <form class="search-container">
+            <select id="lang">
+              <option class="option">Language</option>
+              <option class="option">English</option>
+              <option class="option">Hindi</option>
+              <option class="option">Panjabi</option>
+              <option class="option">Gujarati</option>
+            </select>
+            <input type="text" class="input-search" placeholder="Search song's" />
+            <div class="input-search_options hidden">
+                <p class="no-song active-para">NO result yet!</p>
+            </div>
+            <button type="submit" class="btn-search">
+              <img src="icons/search.svg" class="search-icon" alt="search" />
+            </button>
+          </form>
+        </div>
+        <div class="add-song-login_container">
+              <!-- Remove and add (add songs btn) -->
+            <div class="add-song btn" title="Add songs">
+              <img src="./icons/upload.png" alt="" />
+              <p>Upload</p>
+            </div>
+            <div class="btn-login btn">
+              <a href="../Login-Form/login-form.html" class="login_link" >LOGIN</a>
+              <!-- <img src="./icons/user.svg" class="user-svg"> 
+              <div class="user-details_container hidden">
+                <div class="user-details">
+                  
+                    <img src="./icons/user.svg"> 
+                    <div class="close-btn"><img src="./icons/cancel.svg" alt=""></div>
+                  
+                  <p><span>Name:</span> Prem</p>
+                  <p><span>Email:</span> prem@gmail.com</p>
+                  <div class="user-details_btns flex-container">
+                      <div class="logout-btn btn">Logout</div>
+                      <div class="update-btn btn">Update</div> -->
+
+                      <!-- Update render form -->
+                      <!-- <form class="update-user_form" enctype="multipart/form-data">
+
+                        <div class="avatar_container" title="Profile Picture">
+                          <input type="file" name="avatar" accept="image/*" class="avatar" />
+                          <img src="./icons/user.svg" style="cursor: pointer" class="avatar-img" />
+                          <div class="upload-svg_container">
+                            <img src="./icons/upload.svg" style="cursor: pointer" class="upload-svg" />
+                          </div>
+                        </div>
+                        
+                        <div class="form-control">
+                          <label for="name">Name:</label>
+                          <input type="text" name="name" value="name" placeholder="Your Name"/>
+                          <small>Error message</small>
+                        </div>
+            
+                        <div class="form-control">
+                          <label for="email">Email:</label>
+                          <input type="text" name="email" value="name@gmail.com" placeholder="example@email.com" />
+                          <small>Error message</small>
+                        </div>
+                        
+                        <div class="form-control">
+                          <label for="password">Password :</label>
+                          <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Update Password"
+                          />
+                          <small>Error message</small>
+                        </div>
+                        <div class="user-details_btns flex-container">
+                          <div><button type="button" class="update-discard_btn btn">Discard</button></div>
+                          <div><button type="submit" class="update-save_btn btn" data-btn-name="saveupdate">Save</button></div>
+                        </div>
+                      </form> -->
+                  <!-- </div>         -->
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+    <!--Add Song  form-->
+    <div class="form-for_add-song hidden">
+      <div class="add-song-container_form">
+      <div class="add-song_form">
+        <h3>Add Your Song To song-app</h3>
+        <form class="add-song_inputs" id="form-el" enctype="multipart/form-data">
+
+          <div class="form-control ">
+            <label for="singer">Singer:</label>
+            <input type="text" name="singer" placeholder="Singer Name" required/>
+          </div>
+
+          <div class="form-control ">
+            <label for="Song Title">Song Title:</label>
+            <input type="text" name="songTitle" placeholder="Song Title" />
+          </div>
+
+          <div class="form-control ">
+            <label for="language">Language:</label>
+            <!-- <input type="text" name="language" placeholder="Song language" /> -->
+            <select name="language" required>
+              <option></option>
+              <option >English</option>
+              <option >Hindi</option>
+              <option >Panjabi</option>
+              <option >Other</option>
+            </select>
+          </div>
+
+          <div class="form-control ">
+            <label for="audio-file">Select Audio File:</label>
+            <input type="file" name="audioFile" accept="Audio/mp3" title="Song File" required/>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control ">
+            <label for="albem picture">Song Poster(.png or .jpg):</label>
+            <input type="file" name="imgFile" accept="image/*" capture title="Image File"/>
+            <small>Error message</small>
+          </div>
+
+            <div class="add-song_btns">
+              <div><button type="button" class="discard btn">Discard</button></div>
+              <div><button type="submit" class="save btn">Save</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <main class="main">
+      <div class="container flex-container song-container">
+        <!-- song-list_container -->
+        <div class="song-shotlist_container"> 
+          <div class="playlist">
+            <button class="global-btn playlist-btn" style="border-bottom: 7px solid var(--border-color);" name="global">Global</button>
+            <button class="my-songs-btn playlist-btn" name="mySongs">My Songs</button>
+            <button class="favourite-btn playlist-btn" name="favourite">Favourite</button>
+          </div>
+            <div class="back-to-playlist_Con"> </div>
+          <ul class="ul-container">
+            <!-- Loader html -->
+            <!-- <div class="lds-dual-ring"></div> -->
+            <!-- <li class="song-list">
+              <div class="song-item">
+                <img src="./img/5.png" alt="" class="song-img" />
+                <div class="song-title-container">
+                  <p class="song-title">
+                    This is basic example of marquee This is basic example of marquee
+                  </p>
+                </div>
+                <div class="song-item-btns">
+                  <div class="star">
+                    <img src="./icons/New/star_border-24px.svg" alt="" class="mark star-svg" />
+                  </div>
+                  <div class="play-pause">
+                    <img src="./icons/play.svg" alt="" class="play-pause-svg" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="hidden-content">
+                <p>
+                  <span>Title:</span>
+                  This is basic example of marquee This is basic example of marquee
+                </p>
+                <p>
+                  <span>Singer:</span>
+                  Prem jethwa
+                </p>
+                <p>
+                  <span>Song Type:</span>
+                  party
+                </p>
+                <div class="song-icons flex-container">
+                  <div class="delete btn"><img src="./icons/New/delete-24px.svg" alt="" /></div>
+                  <div class="user-icon btn">
+                    <img src="./icons/New/pcss/erm_identity-24px.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </li> -->
+          </ul>
+          <div class="pagination-layout_container">
+            <div class="pagination-container">
+          </div>
+
+          </div>
+        </div>
+        <div class="song-play-container">
+          <div class="player-container">
+            <!-- Song -->
+            <div class="img-container">
+              <img src="img/default.jpg" alt="Album Art" class="player-img" />
+            </div>
+            <h2 id="title">Electric Chill Machine</h2>
+            <h3 id="artist">Jacinto</h3>
+            <audio src="music/jacinto-1.mp3"></audio>
+            <!-- music/jacinto-1.mp3 -->
+            <!-- Progress -->
+            <div class="progress-container" id="progress-container">
+              <div class="progress" id="progress"></div>
+              <div class="duration-wrapper">
+                <span id="current-time">0:00</span>
+                <span id="duration">2:06</span>
+              </div>
+            </div>
+            <!-- Controls -->
+            <div class="player-controls">
+              <img src="icons/skip_previous.svg" class="player-btn" id="prev" title="Previous" />
+              <img src="icons/play.svg" class="player-btn" id="play" title="Play" />
+              <img src="icons/skip_next.svg" class="player-btn" id="next" title="Next" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer ">
+      <div class="footer-container">
+        <div class="support">
+          <p>Address: world</p>
+        </div>
+     
+        <div class="dev-by">
+          <p>Developed & Design By: <span> Prem & Pritul </span></p>
+          <p>Details</p>
+        </div>
+      </div>
+        <div class="creator"><a  href="#">View Creator's Website  </a></div>
+      <div class="rights-div">
+         <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+          <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+        </a>
+        <br />This work is licensed under a 
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+          Creative Commons International License
+        </a>.
+      </div>
+      <div style="font-size: 14px; position: absolute; bottom: 10px;"  >Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+.footer {
+  /* max-width: 1200px; */
+  /* max-width: 90vw; */
+  width: 100%;
+  /* position: relative; */
+  background-color: var(--footer-bg);
+  text-align: center;
+  padding: 0.5em;
+  font-size: 20px;
+  color: var(--sec-color);
+}
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 0.5em;
+}
+.footer-container div {
+  /* border: 2px solid; */
+  width: 90%;
+  padding: 1em;
+  background-color: var(--footer-sec-bg);
+  border-radius: 10px;
+  height: 150px;
+}
+
+.footer .rights-div {
+  padding: 1em 0;
+}
+
+.footer .rights-div a {
+  text-decoration: underline;
+  color: rgb(151, 192, 255);
+}
+
+.footer .creator {
+  width: 250px;
+  margin: 1em auto;
+  background-color: gainsboro;
+  border-radius: 10px;
+  cursor: pointer;
+  color: rgb(0, 102, 255);
+  font-weight: 800;
+}
+
+.footer .creator:hover {
+  background-color: moccasin;
+}
+.footer .creator {
+  padding: 0.5em;
+}
+
+.footer .dev-by span {
+  color: moccasin;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.footer .dev-by p {
+  padding: 0.5em;
+}
+
+.footer .support p {
+  margin: 0.5em;
+}

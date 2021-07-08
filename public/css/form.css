@@ -1,0 +1,233 @@
+.add-song-container_form {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  z-index: 2;
+
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--main-color);
+  /* height: 100%; */
+  top: 50px;
+}
+.add-song_form {
+  max-width: 400px;
+  border: 2px solid var(--form-border);
+  padding: 1em;
+  background-color: var(--form-bg);
+  border-radius: 10px;
+  position: absolute;
+}
+
+.add-song_form h3 {
+  margin: 0.5em 0;
+  color: var(--sec-color);
+}
+
+.add-song_btns button,
+.update-user_form button {
+  padding: 0.5em;
+  font-size: 18px;
+}
+.add-song_inputs small {
+  height: 20px;
+  padding: 0.5em;
+}
+
+.add-song_inputs input,
+.update-user_form input,
+.add-song_inputs select {
+  padding: 0.5em;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 18px;
+  outline: none;
+  background-color: #c9ced3b0;
+  color: black;
+  border: 3px solid rgb(88, 88, 88);
+
+  margin-bottom: 1em;
+}
+
+.add-song_btns {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 1em 0 0 0;
+}
+
+.add-song_btns .save {
+  color: black;
+  background-color: var(--btn-bg);
+}
+
+.add-song_btns .discard {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: rgb(201, 201, 201);
+}
+
+/* PROFILE photo styling (start) */
+.avatar_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.avatar_container .avatar-img,
+.avatar,
+.avatar_container,
+.upload-svg_container {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+.avatar {
+  opacity: 0;
+  z-index: 5;
+}
+
+.avatar_container .avatar-img {
+  position: absolute;
+  left: 0;
+  /* z-index: -1; */
+  padding: 0.5em;
+
+  border: 5px solid;
+  opacity: 0.7;
+}
+.upload-svg,
+.upload-svg_container img {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  top: 35px;
+  border: none;
+  padding: 0.2em;
+  background-color: rgba(255, 255, 255, 0.836);
+}
+.upload-svg_container {
+  background-color: rgba(199, 199, 199, 0.377);
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  /* z-index: -1; */
+}
+.avatar_container:hover .upload-svg_container {
+  opacity: 1;
+  filter: grayscale(0.5);
+}
+/* PROFILE photo styling (end) */
+
+/* UPDATE user form */
+.user-details {
+  width: 90%;
+  max-width: 400px;
+}
+.user-details_container {
+  position: fixed;
+}
+.update-user_form {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.update-user_form input {
+  margin-bottom: 1.5em;
+  outline: 0;
+  border: 3px solid rgb(66, 66, 66);
+  max-width: 400px;
+}
+.user-details_btns {
+  width: 100%;
+}
+
+.update-user_form .update-discard_btn {
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 202, 132, 0.801);
+}
+.update-user_form .update-save_btn {
+  background-color: var(--btn-bg);
+  color: rgb(255, 255, 255);
+}
+
+/* ERROR or SUCCESS */
+.form-control {
+  position: relative;
+  width: 100%;
+}
+
+.form-control input:focus {
+  outline: 0;
+  border: 3px solid gray;
+}
+
+.form-control.error input {
+  border-color: rgb(255, 1, 1);
+}
+
+.form-control small {
+  color: rgb(255, 94, 0);
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  visibility: hidden;
+  font-weight: 700;
+  z-index: 2;
+  height: 25px;
+  text-shadow: 10px 10px 100px 10px rgb(0, 0, 0);
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+/* Form Media query */
+@media (max-width: 700px) {
+  .add-song-container_form {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .add-song_inputs input,
+  .add-song_inputs select {
+    font-size: 16px;
+    /* margin: 0 0 0.5em 0; */
+  }
+
+  .user-details_container img {
+    width: 100px;
+    margin: 0;
+  }
+
+  .update-user_form {
+    font-size: 16px;
+  }
+  .update-user_form .form-control input {
+    font-size: 14px;
+  }
+
+  .upload-svg,
+  .upload-svg_container img {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 35px;
+    border: 1px solid;
+    padding: 0.2em;
+    background-color: rgba(143, 143, 143, 0.836);
+    margin: 0;
+    padding: 0;
+  }
+}

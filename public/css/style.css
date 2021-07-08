@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Livvic:wght@200;300&family=Vollkorn+SC&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Livvic", sans-serif;
+  /* font-family: 'Vollkorn SC', serif; */
+}
+a {
+  text-decoration: none;
+}
+
+:root {
+  /* Background */
+  --main-bg: #76c893;
+  --pri-bg: #ffffff;
+  --sec-bg: #befff4;
+  --thir-bg: #92fff0;
+  --footer-bg: rgb(0, 115, 168);
+  --footer-sec-bg: rgb(0, 132, 150);
+  --nav-bg: #d1d1d1;
+  --play-item: #4db999;
+  /* Font color */
+  --main-color: #ffffff;
+  --sec-color: #aaffe0;
+  --thir-color: #99d98c;
+  /* BORDER */
+  --border-color: #fe2d2d;
+  --pri-border: #575757;
+
+  /* Form Color */
+  --form-bg: #0db39e;
+  --form-border: #16db93;
+}
+
+/* *********************************************** */
+/* overwriting the color var */
+:root {
+  /* Background */
+  --main-bg: #30648eb4;
+  --pri-bg: #00798c70;
+  --sec-bg: #b6d0e5a4;
+  --thir-bg: #b3ebff75;
+  --footer-bg: #1d3557;
+  --footer-sec-bg: #457b9d;
+  --nav-bg: #205874; /* #edf7f69d; */
+  --play-item: #00798c;
+  /* Font color */
+  --main-color: #ffffff;
+  --sec-color: #aaffe0;
+  --thir-color: #99d98c;
+  /* BORDER */
+  --border-color: #ed4949;
+  /* --pri-border: #00bdda; */
+
+  /* Form Color */
+  --form-bg: #003d5b;
+  --form-border: #2d728f;
+
+  /* notification */
+  --error: #ff818b;
+  --success: #3b8dc0;
+
+  /* btn bg */
+  --btn-bg: #90cdff83;
+  --btn-hover: #90cdff3f;
+}
+
+/***************
+ COMMON Container's to Use any ware for styling*/
+
+/* flex container */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  background: var(--main-bg);
+  position: relative;
+  z-index: -5;
+}
+/* container */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* message */
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 12em;
+  /* font-size: 30px; */
+}
+
+/* loading spinner css */
+
+/* notification message */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    z-index: 5;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0;
+    z-index: 5;
+  }
+  100% {
+    opacity: 0;
+    z-index: -5;
+  }
+}
+
+.msg-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 4s ease-in-out;
+  color: var(--main-color);
+  font-weight: 800;
+  font-size: 24px;
+  text-align: center;
+
+  inset: 100px 50% auto 50%;
+
+  opacity: 0;
+  z-index: -5;
+}
+.msg {
+  text-align: center;
+
+  position: fixed;
+  max-width: 450px;
+  width: 100%;
+  padding: 0.5em 1em;
+  background-color: var(--sec-bg);
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.68);
+}
+
+.modal-win {
+  /* min-height: 100%; */
+  height: 100vh;
+  width: 100vw;
+  background-color: #000000c5;
+  position: fixed;
+  z-index: 1;
+  filter: blur(8px);
+  -webkit-filter: blur(1px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/***************
+ Navigation Styling */
+.nav {
+  padding: 1em;
+  font-size: 1.75rem;
+  box-shadow: 0px 6px 10px -4px rgba(0, 0, 0, 0.62);
+  background: var(--nav-bg);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* default button styling */
+.btn {
+  display: flex;
+  outline: none;
+
+  padding: 0 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  /* border: 2px solid var(--pri-border); */
+  background-color: var(--btn-bg);
+  text-align: center;
+  outline: none;
+  height: 100%;
+}
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+/* PLAYER  */
+/***************
+ Song list Styling */
+
+.main {
+  text-align: center;
+  background: var(--sec-bg);
+  position: relative;
+  z-index: -4;
+}
+
+.song-container {
+  min-height: 550px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: -3;
+}
+
+/***************
+ Song player Styling */
+
+.song-play-container {
+  width: 60%;
+  height: 50px;
+  max-width: 620px;
+  height: 80vh;
+  margin: 0;
+}
+
+.player-container {
+  background-color: var(--pri-bg);
+}
+
+/* bookmarks */
+.mark {
+  display: block;
+}
+
+.mark-show {
+  content: url("./icons/New/star-24px.svg");
+}
+/* Use of Media Query */
+
+/* nav  */
+@media (max-width: 800px) {
+  .song-list_container {
+    margin: 0 auto;
+  }
+  .nav {
+    margin: 0;
+    padding: 0.5em;
+  }
+  .nav-container {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+}
+/**************************************
+Main container Responsiveness */
+@media (max-width: 700px) {
+  .main {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    justify-content: none;
+  }
+  .img-container {
+    width: 250px;
+    height: 250px;
+    position: static;
+    left: 0px;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 16px;
+  }
+  .player-img {
+    margin-top: 1em;
+    padding: 0;
+  }
+
+  .song-play-container {
+    width: 100%;
+    max-width: 450px;
+    min-width: 300px;
+    height: 100%;
+    order: 1;
+    padding: 0;
+    margin: 0;
+  }
+  .player-container {
+    width: 100%;
+    /* max-width: 350px; */
+    min-width: 300px;
+    box-shadow: none;
+
+    margin-bottom: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+  .player-controls {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    top: 0;
+  }
+  .player-container h2 {
+    margin-top: 1em;
+  }
+
+  .container {
+    /* max-width: 90%; */
+    width: 100%;
+    flex-direction: column;
+
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  /* notification */
+  .msg-container {
+    font-size: 18px;
+  }
+}
+.hidden {
+  display: none;
+}

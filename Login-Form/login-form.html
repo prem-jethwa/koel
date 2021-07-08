@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login/Sigin</title>
+    <link rel="stylesheet" href="login-form.css" />
+    <!-- <script defer src="./login-script.js"></script> -->
+    <script type="module" src="./src/controller.js"></script>
+  </head>
+  <body>
+    <!-- Profile Photo Markup -->
+    <!-- <div class="avatar_container" title="Profile Picture">
+      <input type="file" name="avatar" accept="image/*" capture class="avatar" />
+      <img src="../song-app/icons/user.svg" style="cursor: pointer" class="avatar-img" />
+      <div class="upload-svg_container">
+        <img src="../song-app/icons/upload.svg" style="cursor: pointer" class="upload-svg" />
+      </div>
+    </div> -->
+    <div class="start-msg">
+      Your data get's erase in 10 minutes after you logged-in (maintain
+      database)
+    </div>
+    <a href="../public/index.html" class="back-to-home_btn">
+      <button>
+        <img src="../public/icons/left-arrow.svg" alt="" />
+        <p>Back To Home</p>
+      </button>
+    </a>
+    <div class="container">
+      <form class="login-form_container" onsubmit="event.preventDefault()">
+        <!-- <div class="avatar_container" title="Profile Picture">
+          <img src="../icons/user.svg" style="cursor: pointer" class="avatar-img" />
+          <div class="upload-svg_container">
+            <img src="../icons/upload.svg" style="cursor: pointer" class="upload-svg" />
+          </div>
+          <input type="file" name="avatar" accept="image/*" capture class="avatar" />
+        </div> -->
+
+        <!-- LOGIN FORM -->
+
+        <h2>Sign-in to song app</h2>
+
+        <div class="form-control">
+          <label for="username ">Name:</label>
+          <input
+            type="text"
+            id="username"
+            name="userName"
+            placeholder="Enter Your Name"
+            required
+          />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="useremail">Email Id:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Enter Email Address"
+            required
+          />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="password">Password :</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter Password"
+            required
+          />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="password2">Conform Password :</label>
+          <input
+            type="password"
+            name="password2"
+            id="password2"
+            placeholder="Enter Password"
+            required
+          />
+          <small>Error message</small>
+        </div>
+        <button type="submit" id="signin">Submit</button>
+        <p class="goto" data-name="signin">All ready have a account LOGIN?</p>
+      </form>
+    </div>
+  </body>
+</html>
