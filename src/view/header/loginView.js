@@ -100,9 +100,9 @@ class LoginView extends View {
   _getMarkup(data) {
     return `
     <div class="user-details">
-      <img src="${data.avatarUrl || "./icons/user.svg"}"> 
+      <img src="${data.avatarUrl || "./public/icons/user.svg"}"> 
       <div class="close-btn">
-        <img src="./icons/cancel.svg" alt="">
+        <img src="./public/icons/cancel.svg" alt="">
       </div>     
       <p><span>Name:</span> ${data.name}</p>
       <p><span>Email:</span> ${data.email}</p>
@@ -116,7 +116,7 @@ class LoginView extends View {
   _genarateMarkup(userData) {
     this._user = userData;
     return `
-    <img class="user-svg" src="./icons/user.svg"> 
+    <img class="user-svg" src="./public/icons/user.svg"> 
     <div class="user-details_container hidden">
       ${this._getMarkup(userData)}
     </div>

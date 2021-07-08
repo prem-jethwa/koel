@@ -46,26 +46,26 @@ class PlayView extends View {
             </div>
             <!-- Controls -->
             <div class="player-controls">
-              <img src="icons/skip_previous.svg" class="player-btn" id="prev" title="Previous" />
-              <img src="icons/play.svg" class="player-btn" id="play" title="Play" />
-              <img src="icons/skip_next.svg" class="player-btn" id="next" title="Next" />
+              <img src="public/icons/skip_previous.svg" class="player-btn" id="prev" title="Previous" />
+              <img src="public/icons/play.svg" class="player-btn" id="play" title="Play" />
+              <img src="public/icons/skip_next.svg" class="player-btn" id="next" title="Next" />
             </div>
           </div>
     `;
   }
 
   playSong() {
-    this.playBtn.src = `icons/pause.svg`;
+    this.playBtn.src = `public/icons/pause.svg`;
     this.playBtn.setAttribute("title", "Pause");
     this.music.play();
   }
 
   renderPlayLoader() {
-    this.playBtn.src = `icons/play-loader.svg`;
+    this.playBtn.src = `public/icons/play-loader.svg`;
   }
 
   pauseSong() {
-    this.playBtn.src = `icons/play.svg`;
+    this.playBtn.src = `public/icons/play.svg`;
     this.playBtn.setAttribute("title", "Play");
     this.music.pause();
   }
@@ -84,7 +84,7 @@ class PlayView extends View {
     // audioSources[1].type = "audio/ogg";
 
     this.image.src = await `${
-      loadedSong.imgFile ? loadedSong.imgFile : "./icons/song.png"
+      loadedSong.imgFile ? loadedSong.imgFile : "./public/icons/song.png"
     }`;
     // this.pauseSong();
   }

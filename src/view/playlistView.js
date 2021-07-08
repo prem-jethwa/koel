@@ -17,7 +17,7 @@ class PlaylistView extends view {
         <li class="song-list" data-id="${song.id}">
         <div class="song-item">
           <img src="${
-            song.imgFile ? song.imgFile : "./icons/playlist-song.png"
+            song.imgFile ? song.imgFile : "./public/icons/playlist-song.png"
           }" alt="${song.artist}" class="song-img" />
           <div class="song-title marquee">
             <p class="song-title_marquee">
@@ -26,12 +26,12 @@ class PlaylistView extends view {
           </div>
           <div class="song-item-btns">
             <div class="star">
-              <img src="./icons/New/star${
+              <img src="./public/icons/New/star${
                 song.fav ? "" : "_border"
               }-24px.svg" alt="" class="star-svg book mark" />
             </div>
             <div class="play-pause">
-              <img src="./icons/play.svg" alt="" class="play-pause-svg" />
+              <img src="./public/icons/play.svg" alt="" class="play-pause-svg" />
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ class PlaylistView extends view {
           ${
             this._user.id === song.userId
               ? `<div class="song-icons flex-container">
-                  <div class="delete btn"><img src="./icons/New/delete-24px.svg" alt="" /></div>
+                  <div class="delete btn"><img src="./public/icons/New/delete-24px.svg" alt="" /></div>
              </div>`
               : ""
           }
@@ -60,7 +60,7 @@ class PlaylistView extends view {
   }
 
   // <div class="user-icon btn">
-  //     <img src="./icons/New/perm_identity-24px.svg" alt="" />
+  //     <img src="./public/icons/New/perm_identity-24px.svg" alt="" />
   // </div>
 
   // Not working!
@@ -122,7 +122,7 @@ class PlaylistView extends view {
 
   setPlaySvg() {
     const allBtns = this._parentEl.querySelectorAll(".play-pause-svg");
-    allBtns.forEach((btn) => (btn.src = "icons/play.svg"));
+    allBtns.forEach((btn) => (btn.src = "./public/icons/play.svg"));
   }
 
   setPauseSvg(songId) {
@@ -132,7 +132,7 @@ class PlaylistView extends view {
 
     if (!songlist) return;
     const btn = songlist.querySelector(".play-pause-svg");
-    btn.src = "icons/pause.svg";
+    btn.src = "./public/icons/pause.svg";
   }
 
   // setFav(songId, add = true) {
@@ -142,7 +142,7 @@ class PlaylistView extends view {
 
   //   if (!songlist) return;
   //   const starImg = songlist.querySelector(".star img");
-  //   starImg.src = `./icons/New/star${add ? "" : "_border"}-24px.svg`;
+  //   starImg.src = `./public/icons/New/star${add ? "" : "_border"}-24px.svg`;
   // }
 
   // setUserIconInPlaylist(url) {

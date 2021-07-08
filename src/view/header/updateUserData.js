@@ -111,10 +111,10 @@ class UpdateUserData extends View {
         <div class="avatar_container" title="Profile Picture">
           <input type="file" name="avatar" accept="image/*" class="avatar" />
           <img src="${
-            userData.avatarUrl || "./icons/user.svg"
+            userData.avatarUrl || "public/icons/user.svg"
           }" style="cursor: pointer" class="avatar-img" />
           <div class="upload-svg_container">
-              <img src="./icons/upload.png" style="cursor: pointer" class="upload-svg" />
+              <img src="public/icons/upload.png" style="cursor: pointer" class="upload-svg" />
           </div>
         </div>
         
