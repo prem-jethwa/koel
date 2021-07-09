@@ -29,6 +29,7 @@
 .song-shotlist_container {
   position: relative;
   min-width: 300px;
+  min-height: 400px;
   max-width: 370px;
   width: 100%;
   background-color: var(--thir-bg);

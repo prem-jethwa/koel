@@ -64,6 +64,11 @@ a {
   }
 }
 
+.logo-svg {
+  width: 40px;
+  height: 40px;
+}
+
 .koel {
   padding: 0.5em;
   text-align: center;
@@ -141,17 +146,17 @@ body {
   text-align: center;
 
   inset: 100px 50% auto 50%;
-
+  margin: 0.5em 1em;
   opacity: 0;
   z-index: -5;
 }
 .msg {
   text-align: center;
-
   position: fixed;
-  max-width: 450px;
+  max-width: 300px;
   width: 100%;
   padding: 0.5em 1em;
+
   background-color: var(--sec-bg);
   border-radius: 20px;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.68);
