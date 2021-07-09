@@ -44,6 +44,40 @@ a {
   --btn-hover: #90cdff3f;
 }
 
+@-webkit-keyframes color_change {
+  100% {
+    text-shadow: 0 0 30px rgba(71, 255, 86, 0.548);
+    color: rgb(71, 255, 86);
+  }
+
+  75% {
+    text-shadow: 0 0 30px rgba(255, 145, 0, 0.534);
+    color: rgb(255, 145, 0);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 128, 145, 0.548);
+    color: rgb(255, 128, 145);
+  }
+  0% {
+    text-shadow: 0 0 30px rgba(255, 0, 191, 0.575);
+    color: rgb(255, 0, 191);
+  }
+}
+
+.koel {
+  padding: 0.5em;
+  text-align: center;
+  margin: 0.5em auto;
+  font-size: 2em;
+  font-weight: 800;
+  letter-spacing: 10px;
+  -webkit-animation: color_change 1s infinite alternate;
+  -moz-animation: color_change 1s infinite alternate;
+  -ms-animation: color_change 1s infinite alternate;
+  -o-animation: color_change 1s infinite alternate;
+  animation: color_change 1s infinite alternate;
+}
+
 /***************
  COMMON Container's to Use any ware for styling*/
 
