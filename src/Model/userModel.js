@@ -40,12 +40,14 @@ export async function getUser() {
   try {
     const data = await AJAX("GET", `${API_URL}user`);
 
-    if (data.status === 404) return;
+    if (data.status === 404 || data.data.type === "error")
+      throw new Error("not found");
 
     const { name, email, _id } = data.data;
 
     state.user = { name, email, id: _id };
     state.isLogedIn = true;
+
     return state.user;
   } catch (err) {
     await logoutUser();

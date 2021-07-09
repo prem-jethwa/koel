@@ -108,25 +108,13 @@ const init = async function () {
   playView.addHandlerPlay(controlPlay);
 };
 
-const autoLogout = () => {
-  setTimeout(async () => {
-    if (stateModel.state.isLogedIn) logout(false);
-    else {
-      await stateModel.loadSongPlaylistsState();
-      await loadUi();
-    }
-  }, 1000 * 60 * 10);
-};
-
 window.addEventListener("load", async () => {
-  // playlistView.addHanderOnUiLoad();
   try {
-    await renderUserDetails();
     await stateModel.loadSongPlaylistsState();
     await loadUi();
-    await init();
-    await autoLogout();
     document.querySelector(".loader-model").classList.add("hidden");
+    await renderUserDetails();
+    await init();
   } catch (err) {
     document.body = err;
   }

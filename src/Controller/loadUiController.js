@@ -14,6 +14,7 @@ import PaginationView from "../view/paginationView.js";
 // header view
 // import AddSongView from "../view/header/addSongView.js";
 import LoginView from "../view/header/loginView.js";
+import { logout } from "./userController.js";
 // import UpdateUserData from "../view/header/updateUserData.js";
 // import SerachView from "../view/header/searchView.js";
 
@@ -86,11 +87,20 @@ export const loadSongIfExist = async function (currentPlaylist) {
   }
 };
 
+const autoLogout = () => {
+  setTimeout(async () => {
+    logout(false);
+    console.log("logout User!!");
+  }, 1000 * 60 * 10);
+};
+
 export const renderUserDetails = async function () {
-  if (!TOKEN) return;
+  if (!TOKEN) return logout(false);
   const user = await userModel.getUser();
 
-  if (!user?.name) return;
+  if (!user?.name) return logout(false);
+
+  autoLogout();
   playlistView.setUser(stateModel.state.user);
 
   if (stateModel.state.isLogedIn) await LoginView.render(user, false);

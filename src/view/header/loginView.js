@@ -115,6 +115,7 @@ class LoginView extends View {
   }
   _genarateMarkup(userData) {
     this._user = userData;
+    if (!userData) this.renderLogin();
     return `
     <img class="user-svg" src="./public/icons/user.svg"> 
     <div class="user-details_container hidden">
