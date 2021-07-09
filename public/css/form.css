@@ -200,7 +200,7 @@
 
   .add-song_inputs input,
   .add-song_inputs select {
-    font-size: 16px;
+    font-size: 18px;
     /* margin: 0 0 0.5em 0; */
   }
 
@@ -210,10 +210,10 @@
   }
 
   .update-user_form {
-    font-size: 16px;
+    font-size: 18px;
   }
   .update-user_form .form-control input {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .upload-svg,
