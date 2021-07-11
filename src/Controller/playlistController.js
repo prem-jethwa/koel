@@ -2,7 +2,7 @@ import { DEFALULT_PLAYLIST } from "../config.js";
 
 import * as stateModel from "../Model/stateModel.js";
 
-import playView from "../view/playView.js";
+// import playView from "../view/playView.js"; //updated1
 import PaginationView from "../view/paginationView.js";
 import SerachView from "../view/header/searchView.js";
 
@@ -13,7 +13,7 @@ export let beforeSearchPlaylistName = DEFALULT_PLAYLIST;
 
 export const loadPlaylist = async function (playlistName, pageNum) {
   stateModel.state.isPlaying = false;
-  playView.pauseSong();
+  // playView.pauseSong(); //updated1
 
   const currentPlaylist = stateModel.state.playlists[playlistName];
 
