@@ -27,7 +27,11 @@
 }
 
 .footer .rights-div {
+  font-size: 14px;
   padding: 1em 0;
+}
+.footer .rights-div img {
+  width: 40px;
 }
 
 .footer .rights-div a {

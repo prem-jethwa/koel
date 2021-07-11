@@ -146,7 +146,7 @@ body {
   text-align: center;
 
   inset: 100px 50% auto 50%;
-  margin: 0.5em 1em;
+  margin: 0.5em auto;
   opacity: 0;
   z-index: -5;
 }
