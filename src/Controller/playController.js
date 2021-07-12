@@ -46,7 +46,8 @@ export const controlProgressBar = async function (e) {
     stateModel.state.progressDetails.currentTimeState ===
     stateModel.state.progressDetails.durationState
   ) {
-    controlNextSong();
+playview.pauseSong();
+    await controlNextSong();
   }
 };
 
