@@ -41,6 +41,13 @@ export const controlProgressBar = async function (e) {
   await playModel.calcSaveProgressBarDetails(e);
 
   await playView.updateProgress(stateModel.state.progressDetails);
+
+  if (
+    stateModel.state.progressDetails.currentTimeState ===
+    stateModel.state.progressDetails.durationState
+  ) {
+    controlNextSong();
+  }
 };
 
 export const controlUpatedProgress = async function (e, clientWidth) {
@@ -51,6 +58,7 @@ export const controlUpatedProgress = async function (e, clientWidth) {
   await playView.setMusicTime(stateModel.state.music.currentTime);
 
   // Update progress bar
+
   playModel.calcSaveProgressBarDetails(e);
   playView.updateProgress(stateModel.state.progressDetails);
 };

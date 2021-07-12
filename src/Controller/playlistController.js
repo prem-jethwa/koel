@@ -36,8 +36,6 @@ export const controlPlaylistBtn = async function (playlistName) {
 
   await loadPlaylist(playlistName, 1);
 
-  // awaait loadUi(false)
-  // await PaginationView.setSongs(playlistName);
   // Rendering songs to ui
   generatePaginationAndRenderPlaylist(1, playlistName);
 

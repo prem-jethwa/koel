@@ -55,7 +55,7 @@ export async function generatePaginationAndRenderPlaylist(
     pageNum,
     playlistName
   );
-  const currentPlaylist = await stateModel.state.playlists[playlistName];
+  // const currentPlaylist = await stateModel.state.playlists[playlistName]; //update2
 
   await PaginationView.setCurrPage(pageNum);
   await PaginationView.renderPages();

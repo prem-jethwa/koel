@@ -108,13 +108,13 @@ const init = async function () {
   playView.addHandlerPlay(controlPlay);
 };
 
+init();
 window.addEventListener("load", async () => {
   try {
     await stateModel.loadSongPlaylistsState();
-    await loadUi();
+    loadUi();
     document.querySelector(".loader-model").classList.add("hidden");
-    await renderUserDetails();
-    await init();
+    renderUserDetails();
   } catch (err) {
     document.body = err;
   }
