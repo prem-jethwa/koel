@@ -16,8 +16,6 @@ const controlFavAndDel = async function (songId, type) {
   const currPage = await stateModel.state.currPageNum;
   const favPlaylist = await stateModel.playlistsState.favourite;
 
-  console.log(favPlaylist);
-
   if (!stateModel.state.isLogedIn)
     return playlistView.renderNotification("LOGIN to add favourite song");
 

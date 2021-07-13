@@ -109,12 +109,13 @@ const init = async function () {
 };
 
 init();
+
 window.addEventListener("load", async () => {
   try {
+    await renderUserDetails();
     await stateModel.loadSongPlaylistsState();
     loadUi();
     document.querySelector(".loader-model").classList.add("hidden");
-    renderUserDetails();
   } catch (err) {
     document.body = err;
   }

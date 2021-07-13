@@ -40,7 +40,7 @@ export async function getUser() {
   try {
     const data = await AJAX("GET", `${API_URL}user`);
 
-    if (data.status === 404 || data.data.type === "error")
+    if (data?.status === 404 || data?.data.type === "error")
       throw new Error("not found");
 
     const { name, email, _id } = data.data;
@@ -50,7 +50,10 @@ export async function getUser() {
 
     return state.user;
   } catch (err) {
-    await logoutUser();
+    localStorage.removeItem("token");
+    localStorage.clear();
+    state.isLogedIn = false;
+    state.user = {};
     console.log("Error: User NOT Found!", err);
   }
 }

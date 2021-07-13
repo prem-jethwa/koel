@@ -5,13 +5,7 @@ import LoginView from "../view/header/loginView.js";
 import UpdateUserData from "../view/header/updateUserData.js";
 
 // LoadUiController
-import {
-  controlPlay,
-  loadUi,
-  renderUserDetails,
-  loadSongIfExist,
-  generatePaginationAndRenderPlaylist,
-} from "./loadUiController.js";
+import { loadUi, renderUserDetails } from "./loadUiController.js";
 
 export const logout = async function (ask = true) {
   if (ask) {

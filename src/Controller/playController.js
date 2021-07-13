@@ -22,7 +22,6 @@ export const controlPrevSong = async function () {
 };
 export const controlNextSong = async function () {
   stateModel.state.isPlaying = true;
-
   // loading song
   playView.renderPlayLoader();
   await playModel.nextSong();
@@ -46,7 +45,10 @@ export const controlProgressBar = async function (e) {
     stateModel.state.progressDetails.currentTimeState ===
     stateModel.state.progressDetails.durationState
   ) {
-playview.pauseSong();
+    await playView.pauseSong();
+    controlNextSong();
+
+    playview.pauseSong();
     await controlNextSong();
   }
 };

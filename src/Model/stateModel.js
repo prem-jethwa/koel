@@ -79,7 +79,6 @@ export const loadSongPlaylistsState = async function (setCurrSong = true) {
 
       playlistsState = await { global, mySongs: [], favourite: [] };
 
-      console.log(global);
       await getSongById(songID);
       return state;
     }
@@ -98,6 +97,7 @@ export const loadSongPlaylistsState = async function (setCurrSong = true) {
       await getSongById(songID);
     }
 
+    // console.log({ global, mySongs, favourite }); //test
     return state;
   } catch (err) {
     console.log("loadPlaylistState:", err);

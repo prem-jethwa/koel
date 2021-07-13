@@ -1,6 +1,7 @@
 import { DEFALULT_PLAYLIST } from "../config.js";
 
 import * as stateModel from "../Model/stateModel.js";
+import playView from "../view/playView.js";
 
 // import playView from "../view/playView.js"; //updated1
 import PaginationView from "../view/paginationView.js";
@@ -11,20 +12,24 @@ import { generatePaginationAndRenderPlaylist } from "./loadUiController.js";
 
 export let beforeSearchPlaylistName = DEFALULT_PLAYLIST;
 
-export const loadPlaylist = async function (playlistName, pageNum) {
+export const loadPlaylist = async function (
+  playlistName,
+  pageNum,
+  updateFirstSong = true
+) {
   stateModel.state.isPlaying = false;
-  // playView.pauseSong(); //updated1
 
   const currentPlaylist = stateModel.state.playlists[playlistName];
-
   // pagination
   await generatePaginationAndRenderPlaylist(pageNum, playlistName);
   await PaginationView.setSongs(currentPlaylist);
 
+  stateModel.state.currPlaylist = playlistName;
+
+  if (!updateFirstSong) return;
+  playView.pauseSong(); //updated1
   // assingning currplaylist from btn name element
   const playlistFirstSong = await currentPlaylist[0];
-
-  stateModel.state.currPlaylist = playlistName;
   stateModel.state.currSong = playlistFirstSong;
 };
 
@@ -34,7 +39,7 @@ export const controlPlaylistBtn = async function (playlistName) {
 
   if (currPlaylist === playlistName) return;
 
-  await loadPlaylist(playlistName, 1);
+  await loadPlaylist(playlistName, 1, false);
 
   // Rendering songs to ui
   generatePaginationAndRenderPlaylist(1, playlistName);
