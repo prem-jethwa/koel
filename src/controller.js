@@ -109,11 +109,13 @@ const init = async function () {
 };
 const loading = async () => {
   try {
-    console.log("start");
-    await renderUserDetails();
-    console.log("user render Done");
+    // console.log("start");
+    const TOKEN = localStorage.getItem("token");
+
+    if (TOKEN) await renderUserDetails();
+    // console.log("user render Done");
     await stateModel.loadSongPlaylistsState();
-    console.log("loaded Playlist");
+    // console.log("loaded Playlist");
 
     document.querySelector(".loader-model").classList.add("hidden");
     loadUi();
