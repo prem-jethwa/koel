@@ -94,10 +94,17 @@ const autoLogout = () => {
   }, 1000 * 60 * 10);
 };
 
+// const clearLocal = () => {
+//   localStorage.removeItem("token");
+//   localStorage.clear();
+//   state.isLogedIn = false;
+//   state.user = {};
+// };
+
 export const renderUserDetails = async function () {
-  if (!TOKEN) return logout(false);
   const user = await userModel.getUser();
 
+  if (!user?.name && !TOKEN) return;
   if (!user?.name) return logout(false);
 
   autoLogout();

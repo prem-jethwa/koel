@@ -42,9 +42,14 @@ export const state = {
   isPlaying: false,
 };
 
+let isLoadingSong = false;
 // old Name -> loadSongsState
 export const getSongById = async (songId) => {
+  if (isLoadingSong) return;
+
+  isLoadingSong = true;
   const song = await AJAX("GET", `${API_URL}songs/${songId}`);
+  isLoadingSong = false;
 
   const formatedSong = await formatSong(song, true);
 

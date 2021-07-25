@@ -107,19 +107,27 @@ const init = async function () {
   playView.addHandlerNextSong(controlNextSong);
   playView.addHandlerPlay(controlPlay);
 };
-
-init();
-
-window.addEventListener("load", async () => {
+const loading = async () => {
   try {
+    console.log("start");
     await renderUserDetails();
+    console.log("user render Done");
     await stateModel.loadSongPlaylistsState();
-    loadUi();
+    console.log("loaded Playlist");
+
     document.querySelector(".loader-model").classList.add("hidden");
+    loadUi();
+    init();
+
+    console.log("end");
   } catch (err) {
     document.body = err;
   }
-});
+};
+
+loading();
+
+// window.addEventListener("load", );
 
 // if (playlistName === "favourite") {
 //   const index = currPlaylist.findIndex((song) => song.id === songId);

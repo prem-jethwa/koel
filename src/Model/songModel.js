@@ -32,17 +32,6 @@ export const uploadNewSong = async (formData) => {
 
 export const addOrRemoveFav = async (songId, index) => {
   try {
-    // const currPlaylist = await state.playlists[state.currPlaylist];
-    // const favPlaylist = await playlistsState.favourite;
-
-    // if (index <= -1) {
-    //   const song = currPlaylist.filter((song) => song.id === songId);
-
-    //   favPlaylist.push(song[0]);
-    // } else {
-    //   favPlaylist.splice(index, 1);
-    // }
-
     await updateFavSongs();
     await NO_DATA_AJAX("GET", `${API_URL}songs/favourite/${songId}`);
   } catch (err) {
