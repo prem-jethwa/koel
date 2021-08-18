@@ -8,6 +8,7 @@ export const NO_SONG_OBJ = {
   bookmarked: false,
 };
 
+export const AUTO_LOGOUT = false;
 export const PER_PAGE = 4;
 export const API_URL = "https://koel-api.herokuapp.com/"; //PROD
 // export const API_URL = "http://localhost:3000/"; //LOCAL

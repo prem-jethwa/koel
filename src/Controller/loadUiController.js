@@ -1,4 +1,4 @@
-import { DEFALULT_PLAYLIST, NO_SONG_OBJ } from "../config.js";
+import { AUTO_LOGOUT, DEFALULT_PLAYLIST, NO_SONG_OBJ } from "../config.js";
 const TOKEN = localStorage.getItem("token");
 
 import * as stateModel from "../Model/stateModel.js";
@@ -107,7 +107,7 @@ export const renderUserDetails = async function () {
   if (!user?.name && !TOKEN) return;
   if (!user?.name) return logout(false);
 
-  autoLogout();
+  if (AUTO_LOGOUT) autoLogout();
   playlistView.setUser(stateModel.state.user);
 
   if (stateModel.state.isLogedIn) await LoginView.render(user, false);
