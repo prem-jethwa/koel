@@ -142,7 +142,7 @@ export const formatSong = async (song, withAudio = false) => {
       audioFile: await audioBufferTObase64(await song.data.audioFile.data),
     }),
     ...(song.data.imgFile && {
-      imgFile: await getImgUrl(await song.data.imgFile),
+      imgFile: await getImgUrl(await song.data.imgFile.data),
     }),
   };
 };

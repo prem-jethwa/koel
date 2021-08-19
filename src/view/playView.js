@@ -1,3 +1,4 @@
+import { getImgUrl } from "../helpers.js";
 import View from "./View.js";
 
 class PlayView extends View {

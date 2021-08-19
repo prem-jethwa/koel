@@ -94,7 +94,6 @@ class AddSongView extends view {
       const msg = handler();
       if (msg && msg[0]) return this.renderNotification(msg[0], msg[1]);
 
-      console.log(msg);
       this._removeErrorFormEl();
       this._openForm();
     });

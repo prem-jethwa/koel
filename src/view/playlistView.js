@@ -1,3 +1,4 @@
+import { getImgUrl } from "../helpers.js";
 import view from "./View.js";
 
 class PlaylistView extends view {
@@ -17,7 +18,9 @@ class PlaylistView extends view {
         <li class="song-list" data-id="${song.id}">
         <div class="song-item">
           <img src="${
-            song.imgFile ? song.imgFile : "./public/icons/playlist-song.png"
+            song.imgFile
+              ? getImgUrl(song.imgFile.data)
+              : "./public/icons/playlist-song.png"
           }" alt="${song.artist}" class="song-img" />
           <div class="song-title marquee">
             <p class="song-title_marquee">

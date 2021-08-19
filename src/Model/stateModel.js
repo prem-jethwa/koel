@@ -53,6 +53,7 @@ export const getSongById = async (songId) => {
 
   const formatedSong = await formatSong(song, true);
 
+  console.log(formatedSong);
   state.currSong = formatedSong;
   return state.currSong;
 };
