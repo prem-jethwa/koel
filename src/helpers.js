@@ -59,7 +59,7 @@ export const UPLOAD_AJAX = async function (method, url, formData) {
 
 export const getSongPlaylist = async function (playlistName) {
   try {
-    let global, mySongs, favourite;
+    let global, mySongs, favorite;
 
     if (playlistName === "global") {
       global = await AJAX("GET", `${API_URL}songs/global`);
@@ -72,8 +72,8 @@ export const getSongPlaylist = async function (playlistName) {
     }
 
     if (playlistName === "fav") {
-      favourite = await AJAX("GET", `${API_URL}songs/favourite`);
-      return { favourite: favourite.data };
+      favorite = await AJAX("GET", `${API_URL}songs/favourite`);
+      return { favorite: favorite.data };
     }
   } catch (err) {
     throw new Error(err);
@@ -82,18 +82,16 @@ export const getSongPlaylist = async function (playlistName) {
 
 export const getAllPlaylists = async () => {
   try {
-    const playlists = Promise.all([
-      await AJAX("GET", `${API_URL}songs/global`),
-      await AJAX("GET", `${API_URL}songs/mysongs`),
-      await AJAX("GET", `${API_URL}songs/favourite`),
+    const playlists = await Promise.allSettled([
+      AJAX("GET", `${API_URL}songs/global`),
+      AJAX("GET", `${API_URL}songs/mysongs`),
+      AJAX("GET", `${API_URL}songs/favourite`),
     ]);
 
-    const allPlaylists = await playlists;
-
     return {
-      global: await allPlaylists[0].data,
-      mySongs: await allPlaylists[1].data,
-      favourite: await allPlaylists[2].data,
+      global: playlists[0].value.data,
+      mySongs: playlists[1].value.data,
+      favorite: playlists[2].value.data,
     };
   } catch (err) {
     throw Error(err);
@@ -150,7 +148,7 @@ export const formatSong = async (song, withAudio = false) => {
 // return {
 //   global: global.data,
 //   mySongs: mySongs.data,
-//   favourite: favourite.data,
+//   favorite: favorite.data,
 //   audioBufferTObase64,
 // };
 

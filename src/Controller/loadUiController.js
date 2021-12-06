@@ -101,6 +101,12 @@ const autoLogout = () => {
 //   state.user = {};
 // };
 
+const setUserAvatar = async () => {
+  const imgUrl = await userModel.getAvatar();
+  if (!imgUrl) return;
+  LoginView.setAvatar(imgUrl);
+};
+
 export const renderUserDetails = async function () {
   const user = await userModel.getUser();
 
@@ -112,9 +118,7 @@ export const renderUserDetails = async function () {
 
   if (stateModel.state.isLogedIn) await LoginView.render(user, false);
 
-  const imgUrl = await userModel.getAvatar();
-  if (!imgUrl) return;
-  LoginView.setAvatar(imgUrl);
+  setUserAvatar();
 };
 
 /** loadUi()

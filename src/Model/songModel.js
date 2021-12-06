@@ -1,23 +1,7 @@
-import { API_URL, DEFALULT_PLAYLIST, PER_PAGE } from "../config.js";
-import {
-  AJAX,
-  getAllPlaylists,
-  getSongPlaylist,
-  getImgUrl,
-  UPLOAD_AJAX,
-  setFavSongs,
-  NO_DATA_AJAX,
-} from "../helpers.js";
-
+import { API_URL, PER_PAGE } from "../config.js";
+import { NO_DATA_AJAX, UPLOAD_AJAX } from "../helpers.js";
 // STATE
-import {
-  state,
-  playlistsState,
-  getSongById,
-  updateFavSongs,
-  loadSongPlaylistsState,
-  loadVirtualState,
-} from "./stateModel.js";
+import { playlistsState, state, updateFavSongs } from "./stateModel.js";
 
 export const uploadNewSong = async (formData) => {
   state.addSongCount = state.addSongCount + 1;
@@ -33,7 +17,7 @@ export const uploadNewSong = async (formData) => {
 export const addOrRemoveFav = async (songId, index) => {
   try {
     await updateFavSongs();
-    await NO_DATA_AJAX("GET", `${API_URL}songs/favourite/${songId}`);
+    await NO_DATA_AJAX("GET", `${API_URL}songs/favorite/${songId}`);
   } catch (err) {
     console.log(err);
   }
@@ -41,7 +25,7 @@ export const addOrRemoveFav = async (songId, index) => {
 
 export const findSongAndRemove = async (songId) => {
   try {
-    const playlistName = await state.currPlaylist;
+    const playlistName = state.currPlaylist;
     const currPlaylist = await state.playlists[playlistName];
 
     const playlists = [...Object.values(playlistsState)];

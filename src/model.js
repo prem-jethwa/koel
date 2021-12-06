@@ -92,10 +92,10 @@ import {
 
 // const songs = await [...global, ...mySongs];
 
-// let favourite = [];
+// let favorite = [];
 // songs.forEach((song) => {
 //   if (song.bookmarked) {
-//     favourite.push(song);
+//     favorite.push(song);
 //   }
 // });
 

@@ -1,22 +1,12 @@
-import { API_URL, DEFALULT_PLAYLIST, PER_PAGE } from "../config.js";
-import {
-  AJAX,
-  getAllPlaylists,
-  getSongPlaylist,
-  getImgUrl,
-  UPLOAD_AJAX,
-  setFavSongs,
-  NO_DATA_AJAX,
-} from "../helpers.js";
-
+import { API_URL } from "../config.js";
+import { AJAX, getImgUrl, NO_DATA_AJAX, UPLOAD_AJAX } from "../helpers.js";
 // STATE
 import {
-  state,
-  playlistsState,
-  getSongById,
-  updateFavSongs,
   loadSongPlaylistsState,
   loadVirtualState,
+  playlistsState,
+  state,
+  updateFavSongs,
 } from "./stateModel.js";
 
 export async function logoutUser() {
@@ -25,8 +15,8 @@ export async function logoutUser() {
     localStorage.clear();
     state.isLogedIn = false;
     state.user = {};
-    state.playlists.favourite = [];
-    playlistsState.favourite = [];
+    state.playlists.favorite = [];
+    playlistsState.favorite = [];
     await loadSongPlaylistsState();
     await loadVirtualState();
     await updateFavSongs();

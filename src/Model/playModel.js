@@ -48,9 +48,8 @@ export async function nextSong() {
 
 // play clicked song
 export const updateCurrentSong = async function (song) {
-  const loadedSong = await getSongById(song.id);
-  state.currSong = loadedSong;
-  return loadedSong;
+  state.currSong = await getSongById(song.id);
+  return state.currSong;
 };
 
 // Update Progress Bar & Time

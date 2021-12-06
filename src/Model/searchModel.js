@@ -9,14 +9,7 @@
 //   NO_DATA_AJAX,
 // } from "../helpers.js";
 
-import {
-  state,
-  playlistsState,
-  getSongById,
-  updateFavSongs,
-  loadSongPlaylistsState,
-  loadVirtualState,
-} from "./stateModel.js";
+import { state } from "./stateModel.js";
 
 function removedSpecialChar(songs) {
   const remChar = songs.filter((song) => {
@@ -31,7 +24,6 @@ function removedSpecialChar(songs) {
 }
 
 async function getMatchLanguageSong(language, playlist) {
-  await playlist;
   const matchSongs = await playlist.filter((song) => {
     if (song.language === language) {
       return song;

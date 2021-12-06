@@ -1,26 +1,23 @@
-import { API_URL, DEFALULT_PLAYLIST, PER_PAGE } from "../config.js";
+import { API_URL, DEFALULT_PLAYLIST } from "../config.js";
 import {
   AJAX,
+  formatSong,
   getAllPlaylists,
   getSongPlaylist,
-  getImgUrl,
-  UPLOAD_AJAX,
   setFavSongs,
-  NO_DATA_AJAX,
-  formatSong,
 } from "../helpers.js";
 
 export let playlistsState = {
   global: [],
   mySongs: [],
-  favourite: [],
+  favorite: [],
 };
 
 export const state = {
   playlists: {
     global: [],
     mySongs: [],
-    favourite: [],
+    favorite: [],
     searchResults: [],
   },
   bookmarks: [],
@@ -51,15 +48,12 @@ export const getSongById = async (songId) => {
   const song = await AJAX("GET", `${API_URL}songs/${songId}`);
   isLoadingSong = false;
 
-  const formatedSong = await formatSong(song, true);
-
-  console.log(formatedSong);
-  state.currSong = formatedSong;
+  state.currSong = await formatSong(song, true);
   return state.currSong;
 };
 
 export const updateFavSongs = async () => {
-  const fav = await state.playlists.favourite;
+  const fav = await state.playlists.favorite;
   const global = await state.playlists.global;
   const mySongs = await state.playlists.mySongs;
 
@@ -80,38 +74,42 @@ export const loadSongPlaylistsState = async function (setCurrSong = true) {
     if (!isUserLogedIn) {
       const { global } = await getSongPlaylist("global");
 
-      state.playlists.global = await global;
-      const songID = await state.playlists.global[0]?.id;
+      state.playlists.global = global;
+      // const songID = await state.playlists.global[0]?.id;
 
-      playlistsState = await { global, mySongs: [], favourite: [] };
+      playlistsState = {
+        global,
+        mySongs: [],
+        favorite: [],
+      };
 
-      await getSongById(songID);
+      await getSongById(state.playlists.global[0]?.id);
       return state;
     }
 
-    const { global, mySongs, favourite } = await getAllPlaylists();
+    const { global, mySongs, favorite } = await getAllPlaylists();
 
     state.addSongCount = mySongs.length;
 
-    state.playlists = await { global, mySongs, favourite };
-    playlistsState = await { global, mySongs, favourite };
-
-    updateFavSongs();
+    state.playlists = playlistsState = await {
+      global,
+      mySongs,
+      favorite,
+    };
 
     if (setCurrSong) {
-      const songID = state.playlists.global[0].id;
-      await getSongById(songID);
+      await getSongById(state.playlists.global[0].id);
     }
 
-    // console.log({ global, mySongs, favourite }); //test
+    await updateFavSongs();
     return state;
   } catch (err) {
-    console.log("loadPlaylistState:", err);
+    console.log(">> loadPlaylistState:", err);
   }
 };
 
 export const loadVirtualState = async (setCurrSong = false) => {
-  const { global, mySongs, favourite } = await playlistsState;
+  const { global, mySongs, favorite } = await playlistsState;
 
   await updateFavSongs();
 
@@ -121,6 +119,6 @@ export const loadVirtualState = async (setCurrSong = false) => {
     if (state.currSong.id !== songId) await getSongById(songID);
   }
 
-  state.playlists = await { global, mySongs, favourite };
+  state.playlists = await { global, mySongs, favorite };
   return state;
 };

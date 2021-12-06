@@ -14,10 +14,10 @@ const controlFavAndDel = async function (songId, type) {
   const playlistName = await stateModel.state.currPlaylist;
   const currPlaylist = await stateModel.state.playlists[playlistName];
   const currPage = await stateModel.state.currPageNum;
-  const favPlaylist = await stateModel.playlistsState.favourite;
+  const favPlaylist = await stateModel.playlistsState.favorite;
 
   if (!stateModel.state.isLogedIn)
-    return playlistView.renderNotification("LOGIN to add favourite song");
+    return playlistView.renderNotification("LOGIN to add favorite song");
 
   if (type === "fav") {
     const index = favPlaylist.findIndex((song) => song?.id === songId);
@@ -32,7 +32,7 @@ const controlFavAndDel = async function (songId, type) {
 
     // await stateModel.updateFavSongs();
     // await loadUi(false);
-    // if (playlistName === "favourite")
+    // if (playlistName === "favorite")
     await PaginationView.setSongs(currPlaylist);
     generatePaginationAndRenderPlaylist(currPage, playlistName);
 
@@ -56,7 +56,7 @@ const controlFavAndDel = async function (songId, type) {
   }
 
   // await PaginationView.setSongs(currPlaylist);
-  // if (playlistName !== "favourite") return;
+  // if (playlistName !== "favorite") return;
   // generatePaginationAndRenderPlaylist(currPage, playlistName);
 };
 

@@ -16,13 +16,13 @@ a {
 :root {
   /* Background */
   --main-bg: #30648eb4;
-  --pri-bg: #00798c70;
-  --sec-bg: #b6d0e5a4;
-  --thir-bg: #b3ebff75;
+  --pri-bg: #3e95bb;
+  --sec-bg: #6d8299;
+  --thir-bg: #30648e;
   --footer-bg: #1d3557;
   --footer-sec-bg: #457b9d;
   --nav-bg: #205874; /* #edf7f69d; */
-  --play-item: #00798c;
+  --play-item: #90cdff83;
   /* Font color */
   --main-color: #ffffff;
   --sec-color: #aaffe0;
@@ -40,8 +40,8 @@ a {
   --success: #3b8dc0;
 
   /* btn bg */
-  --btn-bg: #90cdff83;
-  --btn-hover: #90cdff3f;
+  --btn-bg: #3e95bb;
+  --btn-hover: #90cdff83;
 }
 
 @-webkit-keyframes color_change {
