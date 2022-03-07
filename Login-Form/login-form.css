@@ -5,19 +5,21 @@
   box-sizing: border-box;
 }
 :root {
-  --main-bg: #003d5bb7;
+  --main-bg: #914900;
   /* Form Color */
-  --font-color: rgb(154, 255, 255);
-  --form-bg: #00798c;
-  --form-border: #2d728f;
+  --font-color: #914900;
+  --label-color: #587200;
+  /* Form Color */
+  --form-bg: #fefae0;
+  --form-border: #ccd5ae;
 
   /* notification */
   --error: #fd6572;
   --success: #49ff9b;
 
   /* btn bg */
-  --btn-bg: rgb(154, 255, 255);
-  --btn-hover: #90cdff3f;
+  --btn-bg: #e7c8a0;
+  --btn-hover: #faedcd;
 }
 
 * {
@@ -48,8 +50,7 @@ body {
   margin: 8px;
   border-radius: 50%;
   border: 6px solid rgba(241, 241, 241, 0.644);
-  border-color: rgba(255, 255, 255, 0.719) transparent
-    rgba(255, 255, 255, 0.712) transparent;
+  border-color: var(--btn-bg) transparent var(--btn-bg) transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
@@ -232,7 +233,7 @@ body {
 .form-control label {
   color: rgb(0, 0, 0);
   display: block;
-  color: whitesmoke;
+  color: var(--label-color);
 }
 
 .form-control input {

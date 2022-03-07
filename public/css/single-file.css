@@ -238,53 +238,8 @@ a {
   text-decoration: none;
 }
 
-:root {
-  /* Background */
-  --main-bg: #76c893;
-  --pri-bg: #ffffff;
-  --sec-bg: #befff4;
-  --thir-bg: #92fff0;
-  --footer-bg: rgb(0, 115, 168);
-  --footer-sec-bg: rgb(0, 132, 150);
-  --nav-bg: #d1d1d1;
-  --play-item: #4db999;
-  /* Font color */
-  --main-color: #ffffff;
-  --sec-color: #aaffe0;
-  --thir-color: #99d98c;
-  /* BORDER */
-  --border-color: #fe7f2d;
-  --pri-border: #575757;
-
-  /* Form Color */
-  --form-bg: #0db39e;
-  --form-border: #16db93;
-}
-
 /* *********************************************** */
 /* overwriting the color var */
-:root {
-  /* Background */
-  --main-bg: #adadada2;
-  --pri-bg: #00798c70;
-  --sec-bg: #b6d0e5a4;
-  --thir-bg: #b3ebff75;
-  --footer-bg: #1d3557;
-  --footer-sec-bg: #457b9d;
-  --nav-bg: #edf7f69d;
-  --play-item: #00798cad;
-  /* Font color */
-  --main-color: #ffffff;
-  --sec-color: #aaffe0;
-  --thir-color: #99d98c;
-  /* BORDER */
-  --border-color: #0014c9;
-  --pri-border: #00bdda;
-
-  /* Form Color */
-  --form-bg: #006d77;
-  --form-border: #2a9d8f;
-}
 
 /***************
    COMMON Container's to Use any ware for styling*/
@@ -322,7 +277,7 @@ body {
   height: 80px;
 }
 .lds-dual-ring:after {
-  content: ' ';
+  content: " ";
   display: block;
   width: 64px;
   height: 64px;
@@ -492,7 +447,7 @@ body {
 }
 
 .mark-show {
-  content: url('./icons/New/star-24px.svg');
+  content: url("./icons/New/star-24px.svg");
 }
 /* Use of Media Query */
 @media (max-width: 800px) {

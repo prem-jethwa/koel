@@ -24,11 +24,11 @@ button {
   padding: 0.2em 0.5em;
   border-radius: 10px;
   background-color: transparent;
-  color: rgb(240, 248, 255);
+  color: var(--main-color);
 }
 
 .search-container input::placeholder {
-  color: rgba(240, 248, 255, 0.596);
+  color: var(--main-color);
   opacity: 7;
 }
 

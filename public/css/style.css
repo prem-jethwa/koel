@@ -15,33 +15,36 @@ a {
 /* overwriting the color var */
 :root {
   /* Background */
-  --main-bg: #30648eb4;
-  --pri-bg: #3e95bb;
-  --sec-bg: #6d8299;
-  --thir-bg: #30648e;
+  --main-bg: #edafb8;
+  --pri-bg: #dbe1bc;
+  --sec-bg: #fffbef;
+  --thir-bg: #fefae0;
   --footer-bg: #1d3557;
   --footer-sec-bg: #457b9d;
-  --nav-bg: #205874; /* #edf7f69d; */
-  --play-item: #90cdff83;
+  --nav-bg: #fefae0; /* #edf7f69d; */
+  --play-item: #ccd5ae;
   /* Font color */
-  --main-color: #ffffff;
-  --sec-color: #aaffe0;
-  --thir-color: #99d98c;
+  --main-color: #3d4f01;
+  --sec-color: #914900;
+  --thir-color: #e1bb80;
   /* BORDER */
   --border-color: #3a1996;
   /* --pri-border: #00bdda; */
 
+  --footer-bg: #914900;
+  --footer-sec-bg: #e7c8a0;
+
   /* Form Color */
-  --form-bg: #003d5b;
-  --form-border: #2d728f;
+  --form-bg: #fefae0;
+  --form-border: #ccd5ae;
 
   /* notification */
   --error: #ff818b;
   --success: #3b8dc0;
 
   /* btn bg */
-  --btn-bg: #3e95bb;
-  --btn-hover: #90cdff83;
+  --btn-bg: #e7c8a0;
+  --btn-hover: #faedcd;
 }
 
 @-webkit-keyframes color_change {

@@ -7,7 +7,7 @@
   text-align: center;
   padding: 0.5em;
   font-size: 20px;
-  color: var(--sec-color);
+  color: var(--thir-color);
 }
 .footer-container {
   display: flex;
@@ -57,15 +57,17 @@
 }
 
 .footer .dev-by span {
-  color: moccasin;
+  color: yellow;
   font-weight: 700;
   letter-spacing: 2px;
 }
 
 .footer .dev-by p {
   padding: 0.5em;
+  color: var(--sec-color);
 }
 
 .footer .support p {
   margin: 0.5em;
+  color: var(--sec-color);
 }
