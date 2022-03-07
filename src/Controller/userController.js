@@ -15,7 +15,7 @@ export const logout = async function (ask = true) {
   await userModel.logoutUser();
   LoginView.renderLogin();
 
-  await stateModel.loadSongPlaylistsState();
+  // await stateModel.loadSongPlaylistsState();
   await loadUi();
 };
 
