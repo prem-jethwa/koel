@@ -2,7 +2,7 @@ import { PER_PAGE } from "../config.js";
 
 import { state, getSongById } from "./stateModel.js";
 
-export function genaratePlylistPageWithPageNum(
+export function generatePlaylistPageWithPageNum(
   pageNum,
   playlistName = state.currPlaylist
 ) {
@@ -21,7 +21,7 @@ let songIndex = 0;
 // state.playlists[state.currPlaylist]
 // Previous Song
 export async function prevSong() {
-  const playlist = genaratePlylistPageWithPageNum(state.currPageNum);
+  const playlist = generatePlaylistPageWithPageNum(state.currPageNum);
 
   songIndex--;
   if (songIndex < 0) {
@@ -35,7 +35,7 @@ export async function prevSong() {
 
 // Next Song
 export async function nextSong() {
-  const playlist = genaratePlylistPageWithPageNum(state.currPageNum);
+  const playlist = generatePlaylistPageWithPageNum(state.currPageNum);
   songIndex++;
   if (songIndex > playlist.length - 1) {
     songIndex = 0;

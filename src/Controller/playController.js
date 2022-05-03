@@ -55,13 +55,10 @@ export const controlProgressBar = async function (e) {
 
 export const controlUpatedProgress = async function (e, clientWidth) {
   const duration = await playView.getDuration();
-
   await playModel.calcSaveSongDetails(e, clientWidth, duration);
-
   await playView.setMusicTime(stateModel.state.music.currentTime);
 
   // Update progress bar
-
   playModel.calcSaveProgressBarDetails(e);
   playView.updateProgress(stateModel.state.progressDetails);
 };

@@ -12,6 +12,7 @@ export default class View {
     if (saveToState) this._data = data;
     this.clear();
 
+    //_genarateMarkup fun should be available in child class who is using render()
     const markup = this._genarateMarkup(data);
 
     if (data.length <= 0) this.renderMessage();
@@ -55,7 +56,8 @@ export default class View {
 
   renderSpinner() {
     this.clear();
-    const html = `<div class="lds-dual-ring"></div>`;
+    // const html = `<div class="lds-dual-ring"></div>`;
+    const html = "<h2> Loading... </h2>";
 
     this._parentEl.insertAdjacentHTML("beforeend", html);
   }
@@ -110,14 +112,14 @@ export default class View {
   }
 
   _genTitle = (title) => {
-    let genaratedTitle = title;
-    const totalTitleLength = genaratedTitle.split("").length;
+    let generatedTitle = title;
+    const totalTitleLength = generatedTitle.split("").length;
 
     if (totalTitleLength > 25) {
-      genaratedTitle = `${title.slice(0, 25)}...`;
+      generatedTitle = `${title.slice(0, 25)}...`;
     }
 
-    return genaratedTitle;
+    return generatedTitle.replace(/.mp3/g, "");
   };
 
   // addHanderOnUiLoad() {

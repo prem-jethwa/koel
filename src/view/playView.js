@@ -1,4 +1,3 @@
-import { getImgUrl } from "../helpers.js";
 import View from "./View.js";
 
 class PlayView extends View {
@@ -72,17 +71,10 @@ class PlayView extends View {
   }
 
   async renderSong(song) {
-    // const audioSources = [...this.music.querySelectorAll("source")];
-
-    // console.log(audioSources);
     const loadedSong = await song;
     this.title.textContent = this._genTitle(loadedSong.title);
     this.artist.textContent = loadedSong.artist;
     this.music.src = await `${loadedSong.audioFile}`;
-    // audioSources[0].src = audioSources[1] = await `${loadedSong.audioFile}`;
-
-    // audioSources[0].type = "audio/mpeg";
-    // audioSources[1].type = "audio/ogg";
 
     this.image.src = await `${
       loadedSong.imgFile ? loadedSong.imgFile : "./public/icons/song.png"

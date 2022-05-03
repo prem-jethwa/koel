@@ -43,12 +43,3 @@ class Validator {
 }
 
 export default new Validator();
-
-// TEST
-// const check = new Validator();
-// console.log(check.checkMaxLength('prem', 4));
-// console.log(check.checkMinLength('prem', 3));
-// console.log(check.isAudioFile('audio.mp3', 2000000));
-// console.log(check.isEmail('prem@gmail.com'));
-// console.log(check.isImageValid('img.png', 1000000));
-// console.log(check.isPasswordMatch('prem', 'prem'));

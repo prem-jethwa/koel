@@ -42,7 +42,7 @@ class PlaylistView extends view {
         <div class="hidden-content">
           <p>
             <span>Title:</span>
-            ${song.title}
+            ${song.title.replace(/.mp3/g, "")}
           </p>
           <p>
             <span>Singer:</span>
@@ -90,9 +90,12 @@ class PlaylistView extends view {
       const deleteEl = e.target.closest(".delete");
       const favBtn = e.target.closest(".star-svg");
 
+      //Click is on FavBtn then return
       if (favBtn) return;
 
+      //Click is on Not at playBtn then return
       if (!clickedSong) return;
+
       const hiddenContentEl = clickedSong.querySelector(".hidden-content");
       const allListItem = this._parentEl.querySelectorAll(".song-list");
 
@@ -115,6 +118,7 @@ class PlaylistView extends view {
 
       if (!playPauseBtn) return;
 
+      //Give's the 1st val which satisfy the condition in Array
       const newsong = this._data.find(
         (song) => song.id === clickedSong.dataset.id
       );

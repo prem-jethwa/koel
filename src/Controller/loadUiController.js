@@ -42,7 +42,7 @@ export const controlPlay = function () {
 
 /** generatePaginationAndRenderPlaylist()
  * Performs PAGINATION and Renders(optional) Playlist
- * @param {numder} pageNum Numder of page to crop playlist;
+ * @param {number} pageNum Number of page to crop playlist;
  * @param {string} playlistName Name of playlist to render and also for pagination;
  * @param {Boolean} render Default is "True" which means render the playlist eo DOM if its set to "false" then it will does not renders the PLYLIST just performs the pagination
  */
@@ -51,7 +51,7 @@ export async function generatePaginationAndRenderPlaylist(
   playlistName,
   render = true
 ) {
-  const currPage = await playModel.genaratePlylistPageWithPageNum(
+  const currPage = await playModel.generatePlaylistPageWithPageNum(
     pageNum,
     playlistName
   );

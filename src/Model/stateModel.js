@@ -7,6 +7,8 @@ import {
   setFavSongs,
 } from "../helpers.js";
 
+import { loadUi, renderUserDetails } from "../Controller/loadUiController.js";
+
 export let playlistsState = {
   global: [],
   mySongs: [],
@@ -71,9 +73,9 @@ export const updateFavSongs = async () => {
 export const loadSongPlaylistsState = async function (setCurrSong = true) {
   try {
     const isUserLogedIn = await state.isLogedIn;
+
     if (!isUserLogedIn) {
       const { global } = await getSongPlaylist("global");
-
       state.playlists.global = global;
       // const songID = await state.playlists.global[0]?.id;
 
@@ -82,8 +84,10 @@ export const loadSongPlaylistsState = async function (setCurrSong = true) {
         mySongs: [],
         favorite: [],
       };
+      loadUi();
 
       await getSongById(state.playlists.global[0]?.id);
+      loadUi();
       return state;
     }
 
@@ -96,12 +100,13 @@ export const loadSongPlaylistsState = async function (setCurrSong = true) {
       mySongs,
       favorite,
     };
-
+    loadUi();
     if (setCurrSong) {
       await getSongById(state.playlists.global[0].id);
     }
 
     await updateFavSongs();
+    loadUi();
     return state;
   } catch (err) {
     console.log(">> loadPlaylistState:", err);

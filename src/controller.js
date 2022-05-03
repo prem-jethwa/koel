@@ -1,6 +1,6 @@
 // import { DEFALULT_PLAYLIST, NO_SONG_OBJ } from "./config.js";
 // const TOKEN = localStorage.getItem("token");
-document.querySelector(".loader-model").classList.remove("hidden");
+// document.querySelector(".loader-model").classList.remove("hidden");
 import {
   controlAddSongsData,
   controlOpenForm,
@@ -12,7 +12,7 @@ import {
   controlPlay,
   // loadSongIfExist,
   generatePaginationAndRenderPlaylist,
-  loadUi,
+  // loadUi,
   renderUserDetails,
 } from "./Controller/loadUiController.js";
 // PlayControler
@@ -95,17 +95,11 @@ const init = async function () {
 };
 const loading = async () => {
   try {
-    // console.log("start");
     const TOKEN = localStorage.getItem("token");
     if (TOKEN) await renderUserDetails();
-
-    // console.log("user render Done");
-    await stateModel.loadSongPlaylistsState();
-    // console.log("loaded Playlist");
-    document.querySelector(".loader-model").classList.add("hidden");
-
-    loadUi();
+    stateModel.loadSongPlaylistsState();
     init();
+    // document.querySelector(".loader-model").classList.add("hidden");
 
     console.log("end");
   } catch (err) {
@@ -114,15 +108,3 @@ const loading = async () => {
 };
 
 loading();
-
-// window.addEventListener("load", );
-
-// if (playlistName === "favorite") {
-//   const index = currPlaylist.findIndex((song) => song.id === songId);
-
-//   currPlaylist.splice(index, 1);
-//   return stateModel.updateFavSongs();
-// }
-
-// const song = currPlaylist.filter((song) => song.id === songId);
-// stateModel.state.playlists.favorite.push(song);
