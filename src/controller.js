@@ -12,7 +12,7 @@ import {
   controlPlay,
   // loadSongIfExist,
   generatePaginationAndRenderPlaylist,
-  // loadUi,
+  loadUi,
   renderUserDetails,
 } from "./Controller/loadUiController.js";
 // PlayControler
@@ -93,8 +93,10 @@ const init = async function () {
   playView.addHandlerNextSong(controlNextSong);
   playView.addHandlerPlay(controlPlay);
 };
+
 const loading = async () => {
   try {
+    playlistView.renderSpinner();
     const TOKEN = localStorage.getItem("token");
     if (TOKEN) await renderUserDetails();
     stateModel.loadSongPlaylistsState();
