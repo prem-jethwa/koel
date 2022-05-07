@@ -12,18 +12,18 @@
 .footer-container {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
   max-width: 1200px;
-  margin: 0 auto;
   gap: 0.5em;
+  height: 100%;
+  margin: 0 auto;
 }
 .footer-container div {
-  /* border: 2px solid; */
   width: 90%;
   padding: 1em;
   background-color: var(--footer-sec-bg);
   border-radius: 10px;
-  height: 150px;
+  margin: 0 auto;
 }
 
 .footer .rights-div {
@@ -57,7 +57,8 @@
 }
 
 .footer .dev-by span {
-  color: yellow;
+  line-height: 1.5em;
+  color: var(--main-color);
   font-weight: 700;
   letter-spacing: 2px;
 }
@@ -70,4 +71,13 @@
 .footer .support p {
   margin: 0.5em;
   color: var(--sec-color);
+}
+
+.footer .support small {
+  color: var(--main-color);
+  padding: 0.5em;
+}
+
+.logo-svg {
+  margin: 2em 0 0 0;
 }
