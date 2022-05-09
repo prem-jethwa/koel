@@ -13,10 +13,9 @@ import { state } from "./stateModel.js";
 
 function removedSpecialChar(songs) {
   const remChar = songs.filter((song) => {
-    const removedSpecialChar = song.title.replace(
-      /[!@#$%^&*(),.?":{}|<>]/g,
-      ""
-    );
+    const removedSpecialChar = song.title
+      .replace("mp3", "")
+      .replace(/[!@#$%^&*(),.?":{}|<>]/g, "");
 
     return (song.title = removedSpecialChar);
   });
